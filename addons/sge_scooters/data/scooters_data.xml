@@ -1,0 +1,47 @@
+<odoo>
+	<data>
+		<record id="brand01" model="sge_scooters.brand">
+			<field name="name">Xiaomi Electric Scooter</field>
+			<field name="desc">Hola que tal estas</field>
+			<field name="nvehicles">16</field>
+			<field name="nbikes">7</field>
+			<field name="nscooters">9</field>
+		</record>
+
+		<record id="scooter02" model="sge_scooters.scooter">
+			<field name="name">Segway 1</field>
+			<field name="peso">20</field>
+			<field name="panel">False</field>
+			<field name="precio_hora">2.5</field>
+			<field name="potencia">baja</field>
+			<field name="brand_id" ref="brand01"/>
+		</record>
+
+		<record id="scooter02" model="sge_scooters.scooter">
+			<field name="name">Segway 2</field>
+			<field name="peso">21</field>
+			<field name="panel">True</field>
+			<field name="precio_hora">2.8</field>
+			<field name="potencia">alta</field>
+			<field name="brand_id" ref="brand01"/>
+		</record>
+
+		<record id="ebike01" model="sge_scooters.ebike">
+			<field name="name">Segway 5</field>
+			<field name="peso">15</field>
+			<field name="tipo">ci</field>
+			<field name="precio">2.8</field>
+			<field name="motor">True</field>
+			<field name="brand_id" ref="brand01"/>
+		</record>
+
+		<record id="client01" model="sge_scooters.client">
+			<field name="name">CL001</field>
+			<field name="dni">12345678X</field>
+			<field name="nombre">Rigomino</field>
+			<field name="apellidos">Garcia</field>
+			<field name="bike_id" ref="ebike01"/>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- Definición de la categoria de seguridad para el módulo-->
+        <record id="parking.module_category_garaje" model="ir.module.category">
+            <field name="name">Parking</field>
+            <field name="description">Ayuda a gestionar tu parking</field>
+            <field name="sequence">100</field>
+        </record>
+        
+        <record id="group_parking_usuario" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="parking.module_category_garaje" />
+            <field name="comment">Usuarios que gestionan los coches y los mantenimientos</field>
+            <!-- Si se quiere añadir los usuarios de otro grupo -->
+            <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]" /> -->
+        </record>
+
+        <record id="group_parking_director" model="res.groups">
+            <field name="name">Director</field>
+            <field name="category_id" ref="parking.module_category_garaje" />
+            <field name="comment">Usuarios que gestionan los parkings</field>
+            <!-- Los miembros de este grupo son también miembros del grupo de usuarios-->
+            <field name="implied_ids" eval="[(4, ref('group_parking_usuario'))]" />
+            <!-- Se añaden los usuarios administradores de Odoo-->
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+
+        </record>
+
+    </data>
+    
+    
+
+</odoo>

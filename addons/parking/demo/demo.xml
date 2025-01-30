@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+<!--
+          <record id="object0" model="parking.parking">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+          </record>
+
+          <record id="object1" model="parking.parking">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+          </record>
+
+          <record id="object2" model="parking.parking">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+          </record>
+
+          <record id="object3" model="parking.parking">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+          </record>
+
+          <record id="object4" model="parking.parking">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+          </record>
+-->
+
+          <record id="garaje01" model="parking.garaje">
+            <field name="name">Plaza Mayor</field>
+            <field name="plazas">50</field>
+          </record>
+
+          <record id="garaje02" model="parking.garaje">
+            <field name="name">Calle Corazon de Maria</field>
+            <field name="plazas">25</field>
+          </record>          
+
+          <record id="coche01" model="parking.coche">
+            <field name="name">1234abc</field>
+            <field name="modelo">Mercedes C</field>
+            <field name="construido">1996-06-10</field>
+            <field name="consumo">6.3</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">Clasico del 96</field>
+            <field name="aparcamiento_id" ref="garaje01" />
+          </record>
+
+          <record id="coche02" model="parking.coche">
+            <field name="name">5678def</field>
+            <field name="modelo">Citroen Xsara</field>
+            <field name="construido">1995-06-10</field>
+            <field name="consumo">5.3</field>
+            <field name="averiado">0</field>
+            <field name="descripcion">Ultimo Xsara</field>
+            <field name="aparcamiento_id" ref="garaje01" />
+          </record>
+
+          <record id="coche03" model="parking.coche">
+            <field name="name">9876xyz</field>
+            <field name="modelo">Peugeot 205</field>
+            <field name="construido">1990-08-10</field>
+            <field name="consumo">7.2</field>
+            <field name="averiado">True</field>
+            <field name="descripcion">El pelotilla rojo</field>
+            <field name="aparcamiento_id" ref="garaje01" />
+          </record>
+
+          <record id="coche04" model="parking.coche">
+            <field name="name">m2345tb</field>
+            <field name="modelo">Volvo 440</field>
+            <field name="construido">1995-12-12</field>
+            <field name="consumo">8</field>
+            <field name="averiado">False</field>
+            <field name="descripcion">Un tanque en la carretera</field>
+            <field name="aparcamiento_id" ref="garaje02" />
+          </record>
+
+          <record id="mante05" model="parking.mantenimiento">
+            <field name="fecha" eval="datetime.now()"/>
+            <field name="tipo">l</field>
+            <field name="coste">8</field>
+            <field name="coche_ids" eval="[(6, 0, [ref('coche01'), ref('coche02')])]" />
+          </record>
+
+    </data>
+</odoo>
+

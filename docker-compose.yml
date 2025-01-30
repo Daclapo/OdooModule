@@ -1,0 +1,33 @@
+services:
+
+  odoo:
+    image: odoo:17.0
+    container_name: odoodev
+    restart: unless-stopped
+    user: root
+    links:
+      - db:db
+    depends_on:
+      - db
+    ports:
+      - "18070:8069"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - ./addons:/mnt/extra-addons
+
+  db:
+    image: postgres:15
+    container_name: db
+    restart: unless-stopped
+
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+
+
+volumes:
+  addons:

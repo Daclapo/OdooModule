@@ -1,0 +1,249 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="parking.list">
+      <field name="name">parking list</field>
+      <field name="model">parking.parking</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="parking.action_window">
+      <field name="name">parking window</field>
+      <field name="res_model">parking.parking</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="parking.action_server">
+      <field name="name">parking server</field>
+      <field name="model_id" ref="model_parking_parking"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- VISTAS DEL GARAJE -->
+    <record model="ir.ui.view" id="parking.garaje_list_view">
+      <field name="name">parking.garaje.view.tree</field>
+      <field name="model">parking.garaje</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="plazas"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="parking.garaje_form_view">
+        <field name="name">parking.garaje.view.form</field>
+        <field name="model">parking.garaje</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de garaje">
+            <sheet>
+
+              <div class="oe_title">
+                <!-- <label class="oe_title_only" for="name" string="Dirección"/> -->
+                <h1>
+                  <field name="name" placeholder="Dirección"/>
+                </h1>
+              </div>
+
+                <group>
+                  <group>
+                    <separator string="Información general"/>
+                      <field name="plazas"/>
+                  </group>
+                </group>
+
+                  <group>
+                      <field name="coche_ids"/>
+                  </group>
+
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+
+
+    <!-- VISTAS DEL COCHE -->
+    <record model="ir.ui.view" id="parking.coche_list_view">
+      <field name="name">parking.coche.view.tree</field>
+      <field name="model">parking.coche</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="modelo"/>
+          <field name="construido"/>
+          <field name="consumo"/>
+          <field name="averiado"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="parking.coche_form_view">
+        <field name="name">parking.coche.view.form</field>
+        <field name="model">parking.coche</field>
+        <field name="arch" type="xml">
+          <form string="Información del vehículo">
+            <sheet>
+
+              <separator string="Información del vehículo" />
+
+                <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="modelo"/>
+                      <field name="construido"/>
+                      <field name="consumo"/>
+                  </group>
+                  <group>
+                      <field name="annos"/>
+                      <field name="averiado"/>
+                      <field name="garaje_id"/>
+                  </group>
+                </group>
+
+                  <group>
+                      <field name="mantenimiento_ids"/>
+                  </group>
+
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="parking.coche_search_view">
+      <field name="name">parking.coche.view.search</field>
+      <field name="model">parking.coche</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="modelo"/>
+          <field name="construido"/>
+          <filter name="averiado" string="Averiado" domain="[('averiado','=',True)]" />
+          <group>
+            <filter name="group_by_averiado" string="Averiado" context="{'group_by': 'averiado'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- VISTAS DE MANTENIMIENTO -->
+    <record model="ir.ui.view" id="parking.mantenimiento_list_view">
+      <field name="name">parking.mantenimiento.view.tree</field>
+      <field name="model">parking.mantenimiento</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fecha"/>
+          <field name="tipo"/>
+          <field name="coste"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="parking.mantenimiento_form_view">
+        <field name="name">parking.mantenimiento.view.form</field>
+        <field name="model">parking.mantenimiento</field>
+        <field name="arch" type="xml">
+          <form string="Información del vehículo">
+            <sheet>
+
+              <separator string="Ficha de mantenimiento" />
+
+                <group>
+                  <group>
+                      <!-- <field name="name"/> -->
+                      <field name="fecha"/>
+                      <field name="tipo"/>
+                  </group>
+                  <group>
+                      <field name="coste"/>
+                  </group>
+                </group>
+
+                  <group>
+                      <field name="coche_ids"/>
+                  </group>
+
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="parking.mantenimiento_calendar_view">
+      <field name="name">parking.mantenimiento.view.calendar</field>
+      <field name="model">parking.mantenimiento</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario de mantenimientos" date_start="fecha" color="tipo" mode="month">
+          <field name="tipo"/>
+          <field name="coste"/>
+        </calendar>
+      </field>
+    </record>    
+
+    <record model="ir.ui.view" id="parking.mantenimiento_search_view">
+      <field name="name">parking.mantenimiento.view.search</field>
+      <field name="model">parking.mantenimiento</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="fecha"/>
+          <field name="tipo" widget="selection"/>
+          <group>
+            <filter name="group_by_tipo" string="Tipo" context="{'group_by': 'tipo'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- DEFINICION DE MENUS-->
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="parking.garaje_action_window">
+      <field name="name">Garajes</field>
+      <field name="res_model">parking.garaje</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="parking.coche_action_window">
+      <field name="name">Coches</field>
+      <field name="res_model">parking.coche</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="parking.mantenimiento_action_window">
+      <field name="name">Mantenimientos</field>
+      <field name="res_model">parking.mantenimiento</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="context">{'search_default_group_by_tipo':False}</field>
+    </record>    
+
+    <!-- Top menu item -->
+
+    <menuitem name="Parking" id="parking.menu_root" web_icon="garaje,static/description/icon.png" />
+
+    <!-- menu categories -->
+    <menuitem name="Garajes" id="parking.garaje_menu" parent="parking.menu_root" action="parking.garaje_action_window"/>
+    <menuitem name="Coches" id="parking.coche_menu" parent="parking.menu_root" action="parking.coche_action_window"/>
+    <menuitem name="Mantenimientos" id="parking.mantenimiento_menu" parent="parking.menu_root" action="parking.mantenimiento_action_window"/>
+
+  </data>
+</odoo>

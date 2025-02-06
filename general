@@ -1,0 +1,16 @@
+Comandos Utilies:
+
+
+docker logs -f odoodev
+
+docker compose up -d Y& docker compose down (en la ruta del docker-compose.yml)
+docker compose start Y& docker compose stop
+
+docker exec -it (nombre contenedor) bash
+
+(En terminal del imagen docker) odoo scaffold (ruta en local) (ruta en imagen) 
+odoo scaffold sge_scooters /mnt/extra-addons
+
+
+
+

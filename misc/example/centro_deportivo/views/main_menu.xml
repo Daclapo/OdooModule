@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!--Abrirmos las acciones para ver las vistas de los modelos-->
+    <record model="ir.actions.act_window" id="centro_deportivo.cliente_action_window">
+      <field name="name">Cliente</field>
+      <field name="res_model">centro_deportivo.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="centro_deportivo.trabajador_action_window">
+      <field name="name">Trabajador</field>
+      <field name="res_model">centro_deportivo.trabajador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="centro_deportivo.servicio_action_window">
+      <field name="name">Servicio</field>
+      <field name="res_model">centro_deportivo.servicio</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="centro_deportivo.centro_action_window">
+      <field name="name">Centro</field>
+      <field name="res_model">centro_deportivo.centro</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Gestión Centros Deportivos" id="centro_deportivo.menu_root" web_icon="centro_deportivo,static/description/icon.png" />
+
+    <!-- menu categories -->
+    <menuitem name="Clientes" id="centro_deportivo.cliente_menu" parent="centro_deportivo.menu_root" action="centro_deportivo.cliente_action_window"/>
+    <menuitem name="Trabajadores" id="centro_deportivo.trabajador_menu" parent="centro_deportivo.menu_root" action="centro_deportivo.trabajador_action_window"/>
+    <menuitem name="Servicios" id="centro_deportivo.servicio_menu" parent="centro_deportivo.menu_root" action="centro_deportivo.servicio_action_window"/>
+    <menuitem name="Centros" id="centro_deportivo.centro_menu" parent="centro_deportivo.menu_root" action="centro_deportivo.centro_action_window"/>
+
+</odoo>
+

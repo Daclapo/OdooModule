@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_dgb_clinica_veterinaria_category" model="ir.module.category">
+        <field name="name">clinica veterinaria</field>
+        <field name="description">Categoria para los grupos de clinica veterinaria</field>
+        
+    </record>
+
+    <record id="dgb_clinica_veterinaria_group_clientes" model="res.groups">
+        <field name="name">Clientes</field>
+        <field name="category_id" ref='module_dgb_clinica_veterinaria_category'></field>
+    </record>
+    <record id="dgb_clinica_veterinaria_group_manager" model="res.groups">
+        <field name="name">Gestores</field>
+        <field name="category_id" ref='module_dgb_clinica_veterinaria_category'></field>
+    </record>
+    <record id="dgb_clinica_veterinaria_group_employes" model="res.groups">
+        <field name="name">Empleados</field>
+        <field name="category_id" ref='module_dgb_clinica_veterinaria_category'></field>
+    </record>
+
+
+</odoo>

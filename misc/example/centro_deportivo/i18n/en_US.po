@@ -1,0 +1,307 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* centro_deportivo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-25 11:03+0000\n"
+"PO-Revision-Date: 2022-04-25 11:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_apellidos
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_apellidos
+msgid "Apellidos"
+msgstr "Lastname"
+
+#. module: centro_deportivo
+#: model:ir.module.category,description:centro_deportivo.module_centro_deportivo_category
+msgid "Ayuda a gestionar un complejo deportivo"
+msgstr "Help managment a sports complex"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_direccion
+msgid "Calle del centro"
+msgstr "Street of the center"
+
+#. module: centro_deportivo
+#: model:ir.actions.act_window,name:centro_deportivo.centro_action_window
+#: model:ir.ui.view,arch_db:centro_deportivo.view_form_centro
+msgid "Centro"
+msgstr "Center"
+
+#. module: centro_deportivo
+#: model:ir.module.category,name:centro_deportivo.module_centro_deportivo_category
+msgid "Centro Deportivo"
+msgstr "Sport Center"
+
+#. module: centro_deportivo
+#: model:ir.ui.menu,name:centro_deportivo.centro_menu
+msgid "Centros"
+msgstr "Centers"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_centros_ids
+msgid "Centros donde se imparte esta actividad"
+msgstr "Centers where this activity is taught"
+
+#. module: centro_deportivo
+#: model:ir.model,name:centro_deportivo.model_centro_deportivo_servicio
+msgid "Clase destinada a la gestión de servicios del centro deportivo"
+msgstr "Class intended for the management of sports center services"
+
+#. module: centro_deportivo
+#: model:ir.model,name:centro_deportivo.model_centro_deportivo_centro
+msgid "Clase destinada a los centros deportivos"
+msgstr "Class created for the sports center services"
+
+#. module: centro_deportivo
+#: model:ir.model,name:centro_deportivo.model_centro_deportivo_cliente
+msgid "Clase destinada a los clientes del centro deportivo"
+msgstr "Class created for the sports center customers"
+
+#. module: centro_deportivo
+#: model:ir.model,name:centro_deportivo.model_centro_deportivo_trabajador
+msgid "Clase destinada a los trabajadores del centro deportivo"
+msgstr "Class created for the sports center workers"
+
+#. module: centro_deportivo
+#: model:ir.actions.act_window,name:centro_deportivo.cliente_action_window
+#: model:ir.ui.view,arch_db:centro_deportivo.view_form_cliente
+msgid "Cliente"
+msgstr "Customer"
+
+#. module: centro_deportivo
+#: model:ir.ui.menu,name:centro_deportivo.cliente_menu
+msgid "Clientes"
+msgstr "Customers"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_email
+msgid "Correo electrónico"
+msgstr "Email"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_create_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_create_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_create_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_create_uid
+msgid "Created by"
+msgstr "Created by"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_create_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_create_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_create_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_create_date
+msgid "Created on"
+msgstr "Created on"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_descripcion
+msgid "Descripcion"
+msgstr "Description"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_direccion
+msgid "Direccion del domicilio"
+msgstr "Home address"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_display_name
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_display_name
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_display_name
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_display_name
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_fecha_nacimiento
+msgid "Fecha de nacimiento"
+msgstr "Date of birth"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_imagen
+msgid "Foto de perfil"
+msgstr "Profile picture"
+
+#. module: centro_deportivo
+#: model:ir.ui.menu,name:centro_deportivo.menu_root
+msgid "Gestión Centros Deportivos"
+msgstr "Sports Center Management"
+
+#. module: centro_deportivo
+#: selection:centro_deportivo.cliente,sexo:0
+#: selection:centro_deportivo.trabajador,sexo:0
+msgid "Hombre"
+msgstr "Men"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_id
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_id
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_id
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_id
+msgid "ID"
+msgstr "ID"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_imagen
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_imagen
+msgid "Imagen"
+msgstr "Image"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,help:centro_deportivo.field_centro_deportivo_cliente_imagen
+#: model:ir.model.fields,help:centro_deportivo.field_centro_deportivo_trabajador_imagen
+msgid "Introduzca la fotografía"
+msgstr "Insert the picture"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro___last_update
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente___last_update
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio___last_update
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador___last_update
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_write_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_write_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_write_uid
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_write_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_write_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_write_date
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_write_date
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_localidad
+msgid "Localidad"
+msgstr "Localidad"
+
+#. module: centro_deportivo
+#: model:res.groups,name:centro_deportivo.centro_deportivo_group_manager
+msgid "Manager"
+msgstr "Manager"
+
+#. module: centro_deportivo
+#: selection:centro_deportivo.cliente,sexo:0
+#: selection:centro_deportivo.trabajador,sexo:0
+msgid "Mujer"
+msgstr "Women"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_nombre
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_nombre
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_nombre
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_nombre
+msgid "Nombre"
+msgstr "Name"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_nss
+msgid "Numero de la Seguridad Social"
+msgstr "Social Security Number"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_telf
+msgid "Numero de telefono"
+msgstr "Phone number"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_telf
+msgid "Número de teléfono"
+msgstr "Phone number"
+
+#. module: centro_deportivo
+#: selection:centro_deportivo.cliente,sexo:0
+#: selection:centro_deportivo.trabajador,sexo:0
+msgid "Otro"
+msgstr "Other"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_centro_pais
+msgid "Pais"
+msgstr "Country"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_servicio_precio
+msgid "Precio mensual"
+msgstr "Monthly price"
+
+#. module: centro_deportivo
+#: model:ir.actions.act_window,name:centro_deportivo.servicio_action_window
+#: model:ir.ui.view,arch_db:centro_deportivo.view_form_servicio
+msgid "Servicio"
+msgstr "Service"
+
+#. module: centro_deportivo
+#: model:ir.ui.menu,name:centro_deportivo.servicio_menu
+msgid "Servicios"
+msgstr "Services"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_servicios_ids
+msgid "Servicios a los que está inscrito el cliente"
+msgstr "Services to which the client is registered"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_servicios_ids
+msgid "Servicios que imparte como monitor este trabajador"
+msgstr "Services provided by this worker as a monitor"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_sexo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_trabajador_sexo
+msgid "Sexo"
+msgstr "Gender"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_total
+msgid "Total actividades"
+msgstr "Total activities"
+
+#. module: centro_deportivo
+#: model:ir.actions.act_window,name:centro_deportivo.trabajador_action_window
+#: model:ir.ui.view,arch_db:centro_deportivo.view_form_trabajador
+msgid "Trabajador"
+msgstr "Employee"
+
+#. module: centro_deportivo
+#: model:ir.ui.menu,name:centro_deportivo.trabajador_menu
+msgid "Trabajadores"
+msgstr "Employees"
+
+#. module: centro_deportivo
+#: model:res.groups,name:centro_deportivo.centro_deportivo_group_user
+msgid "Usuario"
+msgstr "User"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_fecha_nacimiento
+msgid "fecha de nacimiento"
+msgstr "date of birth"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,help:centro_deportivo.field_centro_deportivo_servicio_imagen
+msgid "imagen del servicio"
+msgstr "picture of the service"
+
+#. module: centro_deportivo
+#: model:ir.model.fields,field_description:centro_deportivo.field_centro_deportivo_cliente_pagado
+msgid "¿Ha pagado la cuota?"
+msgstr "Have you paid the fee?"
+

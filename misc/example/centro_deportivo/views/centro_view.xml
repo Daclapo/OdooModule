@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_centro" model="ir.ui.view">
+        <field name="name">Centro</field>
+        <field name="model">centro_deportivo.centro</field>
+        <field name="arch" type="xml">
+            <form string="Centro">
+                <sheet>
+                    <h1><field name="nombre" /></h1>
+                    <group>
+                        <field name="direccion" />
+                        <field name="localidad" />
+                        <field name="pais" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_centro" model="ir.ui.view">
+        <field name="name">Lista de Centros</field>
+        <field name="model">centro_deportivo.centro</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre" />
+                <field name="direccion" />
+            </tree>
+        </field>
+    </record>
+</odoo>

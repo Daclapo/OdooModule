@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cliente_user,clienteUser,model_centro_deportivo_cliente,centro_deportivo_group_user,1,0,0,0
+access_cliente_manager,clienteManager,model_centro_deportivo_cliente,centro_deportivo_group_manager,1,1,1,1
+access_trabajador_user,trabajadorUser,model_centro_deportivo_trabajador,centro_deportivo_group_user,1,0,0,0
+access_trabajador_manager,trabajadorManager,model_centro_deportivo_trabajador,centro_deportivo_group_manager,1,1,1,1
+access_servicio_user,servicioUser,model_centro_deportivo_servicio,centro_deportivo_group_user,1,0,0,0
+access_servicio_manager,servicioManager,model_centro_deportivo_servicio,centro_deportivo_group_manager,1,1,1,1

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_trabajador" model="ir.ui.view">
+        <field name="name">Trabajador</field>
+        <field name="model">centro_deportivo.trabajador</field>
+        <field name="arch" type="xml">
+            <form string="Trabajador">
+                <sheet>
+                    <field name="imagen" widget="image" class='oe_avatar' />
+                    <h1><field name="nombre" class='oe_inline' style="padding:1.5%" /></h1>
+                    <group>
+                        <group>
+                            <field name="apellidos" />
+                            <field name="sexo" />
+                            <field name="nss" />
+                        </group>
+                        <group>
+                            <field name="fecha_nacimiento" />
+                            <field name="telf" widget='phone'/>
+                        </group>
+                    </group>
+                    <field name="servicios_ids" widget='many2many_tags' />
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_trabajador" model="ir.ui.view">
+        <field name="name">Lista Trabajdor</field>
+        <field name="model">centro_deportivo.trabajador</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="imagen"  widget="image" width='100px' />
+                <field name="nombre" />
+                <field name="apellidos" />
+                <field name="servicios_ids" widget='many2many_tags'/>
+            </tree>
+        </field>
+    </record>
+</odoo>

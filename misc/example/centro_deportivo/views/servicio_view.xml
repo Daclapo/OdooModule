@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_servicio" model="ir.ui.view">
+        <field name="name">Servicio</field>
+        <field name="model">centro_deportivo.servicio</field>
+        <field name="arch" type="xml">
+            <form string="Servicio">
+                <sheet>
+                    <field name="imagen" widget='image' class='oe_avatar' />
+                    <h1><field name="nombre" class='oe_inline' style='padding:1.5%' /></h1>
+                    <group>
+                        <group>
+                            <field name="descripcion" />
+                        </group>
+                        <group>
+                            <field name="precio" />
+                        </group>
+                        <field name="centros_ids"  style='margin-top:1.5%'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_servicio" model="ir.ui.view">
+        <field name="name">Lista Servicios</field>
+        <field name="model">centro_deportivo.servicio</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="imagen"  widget="image" width='100px' />
+                <field name="nombre" />
+                <field name="precio"/>
+                <field name="centros_ids" widget='many2many_tags' />
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,98 @@
+<odoo>
+    <data>
+        <!--DATOS PARA LA CREACIÓN DE CENTROS DEPORTIVOS-->
+        <record id="centrodeportivo1" model="centro_deportivo.centro">
+            <field name="nombre">Centro Olímpico Vallecas</field>
+            <field name="direccion">Avenida Monte Igueldo, 78</field>
+            <field name="localidad">Madrid</field>
+            <field name="pais">España</field>
+        </record>
+        <record id="centrodeportivo2" model="centro_deportivo.centro">
+            <field name="nombre">Centro Deportivo Moratalaz</field>
+            <field name="direccion">Calle Padre Claret, 78</field>
+            <field name="localidad">Madrid</field>
+            <field name="pais">España</field>
+        </record>
+        <record id="centrodeportivo3" model="centro_deportivo.centro">
+            <field name="nombre">Sport Centre Cbum</field>
+            <field name="direccion">Collins Avenue, 78</field>
+            <field name="localidad">Florida</field>
+            <field name="pais">Estados Unidos</field>
+        </record>
+        <!--DATOS PARA LA CREACIÓN DE SERVICIOS-->
+        <record id="servicioYoga" model="centro_deportivo.servicio">
+            <field name="nombre">Yoga</field>
+            <field name="descripcion">Sesión de yoga de 45 minutos.</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/logos/yoga.png"/>
+            <field name="precio">29.99</field>
+            <field name="centros_ids" eval="[(6, 0, [ref('centrodeportivo1'), ref('centrodeportivo2')])]" />
+        </record>
+        <record id="servicioPadel" model="centro_deportivo.servicio">
+            <field name="nombre">Padel</field>
+            <field name="descripcion">Clases de padel de 90 minutos.</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/logos/padel.png"/>
+            <field name="precio">45.00</field>
+            <field name="centros_ids"  eval="[(6, 0, [ref('centrodeportivo2')])]" />
+        </record>
+        <record id="servicioGimnasio" model="centro_deportivo.servicio">
+            <field name="nombre">Gimnasio</field>
+            <field name="descripcion">Accesos a la instalaciones deportivas de musculación.</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/logos/gimnasio.png"/>
+            <field name="precio">45.00</field>
+            <field name="centros_ids" eval="[(6, 0, [ref('centrodeportivo3')])]" />
+        </record>
+        <record id="servicioNatacion" model="centro_deportivo.servicio">
+            <field name="nombre">Natacion</field>
+            <field name="descripcion">Clases de natacion de 30 minutos.</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/logos/natacion.png"/>
+            <field name="precio">19.95</field>
+            <field name="centros_ids" eval="[(6, 0, [ref('centrodeportivo1'), ref('centrodeportivo2')])]" />
+        </record>
+        <!--DATOS PARA LA CREACIÓN DE TRABAJADORES-->
+        <record id="trabajador1" model="centro_deportivo.trabajador">
+            <field name="nombre">Roberto</field>
+            <field name="apellidos">García Lopetegui</field>
+            <field name="sexo" eval="'h'"/>
+            <field name="nss">234834234238G</field>
+            <field name="fecha_nacimiento">1989-09-23</field>
+            <field name="telf">657984321</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/personas/persona1.jpeg"/>
+            <field name="servicios_ids" eval="[(6, 0, [ref('servicioPadel'), ref('servicioGimnasio')])]" />
+        </record>
+        <record id="trabajador2" model="centro_deportivo.trabajador">
+            <field name="nombre">Leticia</field>
+            <field name="apellidos">Dos Santos Gil</field>
+            <field name="sexo" eval="'m'"/>
+            <field name="nss">324342342434H</field>
+            <field name="fecha_nacimiento">1993-04-13</field>
+            <field name="telf">654325467</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/personas/persona.jpeg"/>
+            <field name="servicios_ids" eval="[(6, 0, [ref('servicioNatacion'), ref('servicioYoga')])]" />
+        </record>
+        <!--DATOS PARA LA CREACIÓN DE CLIENTES-->
+        <record id="cliente1" model="centro_deportivo.cliente">
+            <field name="nombre">Jose Carlos</field>
+            <field name="apellidos">Llamas Useros</field>
+            <field name="fecha_nacimiento">1976-10-30</field>
+            <field name="sexo" eval="'h'"/>
+            <field name="direccion">34231321423423F</field>
+            <field name="email">josecarl@gmail.com</field>
+            <field name="telf">661324910</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/personas/persona2.jpeg"/>
+            <field name="pagado">True</field>
+            <field name="servicios_ids" eval="[(6, 0, [ref('servicioNatacion')])]" />
+        </record>
+        <record id="cliente2" model="centro_deportivo.cliente">
+            <field name="nombre">Walter Alejandro</field>
+            <field name="apellidos">Rancawua</field>
+            <field name="fecha_nacimiento">1996-03-20</field>
+            <field name="sexo" eval="'h'"/>
+            <field name="direccion">3423132142999L</field>
+            <field name="email">walterjr@gmail.com</field>
+            <field name="telf">670999657</field>
+            <field name="imagen" type="base64" file="/opt/odoo/odoo/addons/centro_deportivo/images/personas/persona3.jpeg"/>
+            <field name="pagado">False</field>
+            <field name="servicios_ids" eval="[(6, 0, [ref('servicioGimnasio'), ref('servicioPadel')])]" />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Datos predeterminados para el modelo duenio -->
+        <record id="duenio_default_data" model="dgb_clinica_veterinaria.duenio">
+            <field name="name">Jhon</field>
+            <field name="ids_dni">55486282X</field>
+            <field name="telefono">648223659</field>
+            <field name="email">email@ejemplo.com</field>
+            <field name="direccion">Fuente del pato</field>
+
+        </record>
+
+        <!-- Datos predeterminados para el modelo veterinario -->
+        <record id="veterinario_default_data" model="dgb_clinica_veterinaria.veterinario">
+            <field name="name">Lisa</field>
+            <field name="telefono_vet">655789852</field>
+            <field name="turno">True</field>
+            <field name="ids_numcolegiado">26489571</field>
+        </record>
+
+        <!-- Datos predeterminados para el modelo vacunas -->
+        <record id="vacunas_default_data" model="dgb_clinica_veterinaria.vacunas">
+            <field name="name">Antirabica</field>
+            <field name="ids_vacuna">0225487</field>
+            <field name="precio">15.9</field>
+            <field name="cantidad">100</field>
+        </record>
+
+        <record id="mascota_default_data" model="dgb_clinica_veterinaria.mascota">
+            <field name="name">Garfield</field>
+            <field name="ids_numchip">420024</field>
+            <field name="nacimiento">2022-01-01</field>
+            <field name="peso">12.5</field>
+            <field name="raza">Gato naranja</field>
+            <field name="sexo">m</field>
+            <!-- Relación con el dueño -->
+            <field name="ndueno_id" ref="duenio_default_data"/>
+            <field name="duenio_dni" ref="duenio_default_data"/>
+            <!-- Por algun motivo no carga dinamicamente los datos de vacunas, pero los del dueño si-->
+            <field name="vacuna_id" ref="vacunas_default_data" />
+            <field name="vacuna_num_lote" ref="vacunas_default_data" />
+            <field name="fecha_vacuna">2022-04-28</field>
+        </record>
+        
+    </data>
+</odoo>

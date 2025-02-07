@@ -1,0 +1,227 @@
+<odoo>
+  <data>
+    <record id="dgb_clinica_veterinaria.mascota_view_list" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.view.list</field>
+      <field name="model">dgb_clinica_veterinaria.mascota</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="ids_numchip" />
+          <field name="edad" />
+          <field name="nacimiento" />
+          <field name="peso" />
+          <field name="raza" />
+          <field name="sexo" />
+          <field name="ndueno_id" string="Propietario" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="dgb_clinica_veterinaria.mascota_view_form" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.mascota.view.form</field>
+      <field name="model">dgb_clinica_veterinaria.mascota</field>
+      <field name="arch" type="xml">
+        <form string="Datos de la mascota">
+          <sheet>
+            <notebook>
+              <page string="Mascota">
+                <group>
+                  <field name="name" placeholder="Nombre de la mascota" />
+                  <field name="ids_numchip" string="Identificador" />
+                  <field name="edad" string="Edad" />
+                  <field name="nacimiento" string="Cumpleaños"/>
+                </group>
+                  <group>
+                 
+                  <field name="peso" string="Peso"/>
+                  <field name="raza" string="Raza"/>
+                  <field name="sexo" string="Genero"/>
+                </group>
+              </page>
+              <page string="Propietario">
+                <group>
+                  <field name="ndueno_id" string="Propietario" />
+                  <field name="duenio_dni" string="DNI del propietario" />
+                </group>
+              </page>
+              <page string="Vacunas">
+                <group>
+                  <field name="vacuna_nombre" string="Vacuna" />
+                  <field name="vacuna_num_lote" string="Numero del lote" />
+                  <field name="fecha_vacuna" string="Fecha de vacunación" widget="date" />
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="dgb_clinica_veterinaria.duenio_view_tree" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.duenio_view_tree</field>
+      <field name="model">dgb_clinica_veterinaria.duenio</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de Dueños">
+          <field name="name" />
+          <field name="ids_dni" />
+          <field name="telefono" />
+          <field name="email" />
+          <field name="direccion" />
+        </tree>
+      </field>
+    </record>
+   <record id="dgb_clinica_veterinaria.duenio_view_form" model="ir.ui.view">
+    <field name="name">dgb_clinica_veterinaria.duenio_view_form</field>
+    <field name="model">dgb_clinica_veterinaria.duenio</field>
+    <field name="arch" type="xml">
+        <form string="Datos del dueño">
+            <sheet>
+             <notebook>
+             <page string="Propietario">
+                <!-- Primera página: Información del propietario -->
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="ids_dni"/>
+                            <field name="telefono"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="direccion"/>
+                        </group>
+                    </group>
+                </div>
+                </page>
+                    <!-- Segunda página: Mascotas -->
+                    <page string="Mascotas">
+                        <group>
+
+                                <field name="mascotas" >
+                                    <tree>
+                                        <field name="name" style="width: 200px;"/>
+                                        <field name="ids_numchip" style="width: 300px;"/>
+                                    </tree>
+                                </field>
+
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+    <record id="dgb_clinica_veterinaria.veterinario_view_form" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.veterinario_view_form</field>
+      <field name="model">dgb_clinica_veterinaria.veterinario</field>
+      <field name="arch" type="xml">
+        <form string="Datos del veterinario/a">
+          <sheet>
+            <group>
+              <field name="name" />
+              <field name="telefono_vet" />
+            </group>
+            <group>
+              <field name="turno" />
+              <field name="ids_numcolegiado" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="dgb_clinica_veterinaria.veterinario_view_tree" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.veterinario_view_tree</field>
+      <field name="model">dgb_clinica_veterinaria.veterinario</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de Veterinarios">
+          <field name="name" />
+          <field name="telefono_vet" />
+          <field name="turno" />
+          <field name="ids_numcolegiado" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="dgb_clinica_veterinaria.vacunas_view_form" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.vacunas_view_form</field>
+      <field name="model">dgb_clinica_veterinaria.vacunas</field>
+      <field name="arch" type="xml">
+        <form string="Datos de la vacuna">
+          <sheet>
+            <group>
+              <field name="name" />
+              <field name="ids_vacuna" />
+              <field name="precio" />
+              <field name="cantidad" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="dgb_clinica_veterinaria.vacunas_view_tree" model="ir.ui.view">
+      <field name="name">dgb_clinica_veterinaria.vacunas_view_tree</field>
+      <field name="model">dgb_clinica_veterinaria.vacunas</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de Vacunas">
+          <field name="name" />
+          <field name="ids_vacuna" />
+          <field name="precio" />
+          <field name="cantidad" />
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- Acciones de ventana -->
+
+    <record model="ir.actions.act_window" id="dgb_clinica_veterinaria.mascota_action_window">
+      <field name="name">Mascotas</field>
+      <field name="res_model">dgb_clinica_veterinaria.mascota</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="dgb_clinica_veterinaria.duenio_action_window">
+      <field name="name">Propietarios</field>
+      <field name="res_model">dgb_clinica_veterinaria.duenio</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="dgb_clinica_veterinaria.veterinario_action_window">
+      <field name="name">Veterinarios</field>
+      <field name="res_model">dgb_clinica_veterinaria.veterinario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="dgb_clinica_veterinaria.vacunas_action_window">
+      <field name="name">Inventario</field>
+      <field name="res_model">dgb_clinica_veterinaria.vacunas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="DGB Clinica Veterinaria" id="dgb_clinica_veterinaria.menu_root" />
+
+    <menuitem name="Consulta" id="dgb_clinica_veterinaria.consulta_menu"
+      parent="dgb_clinica_veterinaria.menu_root" />
+    <menuitem name="Inventario" id="dgb_clinica_veterinaria.inventario_menu"
+      parent="dgb_clinica_veterinaria.menu_root" />
+
+
+    <menuitem name="Propietarios" id="dgb_clinica_veterinaria.duenio_menu"
+      parent="dgb_clinica_veterinaria.consulta_menu"
+      action='dgb_clinica_veterinaria.duenio_action_window' />
+    <menuitem name="Vacunas" id="dgb_clinica_veterinaria.vacunas_menu"
+      parent="dgb_clinica_veterinaria.inventario_menu"
+      action='dgb_clinica_veterinaria.vacunas_action_window' />
+
+    <menuitem name="Veterianrios" id="dgb_clinica_veterinaria.veterinario_menu"
+      parent="dgb_clinica_veterinaria.consulta_menu"
+      action='dgb_clinica_veterinaria.veterinario_action_window' />
+    <menuitem name="Ficha Mascota" id="dgb_clinica_veterinaria.mascota_menu"
+      parent="dgb_clinica_veterinaria.consulta_menu"
+      action='dgb_clinica_veterinaria.mascota_action_window' />
+
+  </data>
+</odoo>

@@ -38,18 +38,19 @@ class libro(models.Model):
     valor = fields.Float(string="Valor económico")
     en_biblioteca = fields.Boolean(string="En biblioteca", default=True)
     estado = fields.Selection(selection=[('nuevo', 'Nuevo'), ('usado', 'Usado'), ('deteriorado', 'Deteriorado')], string="Estado", required=True)
-
-
-	# RELACIONES
     # Relación con el modelo 'prestamo'
     prestamos_ids = fields.One2many('dcp_library.prestamo', 'libro_prestado_id', string="Préstamos")
-
-    # Relación Many2many con clientes que marcan el libro como favorito.
-    # La tabla intermedia se llamará 'cliente_favoritos'
+    # Relación Many2many con clientes (favoritos)
     cliente_ids = fields.Many2many('dcp_library.cliente', 'cliente_favoritos', 'libro_id', 'cliente_id', string="Clientes que marcaron este libro como favorito")
+    # Campo de imagen de la portada (tipo Binary)
+    portada = fields.Binary(string="Portada", attachment=True, help="Imagen de la portada del libro")
+    # Campo calculado que cuenta el número de préstamos
+    prestamos_count = fields.Integer(string="Número de Préstamos", compute="_compute_prestamos_count", store=True, help="Número de veces que este libro ha sido prestado")
 
-    _sql_constraints = [('isbn_unique', 'unique(isbn)', 'El ISBN debe ser único.')]
-
+    @api.depends("prestamos_ids")
+    def _compute_prestamos_count(self):
+        for record in self:
+            record.prestamos_count = len(record.prestamos_ids)
 
 
 class autor(models.Model):
@@ -64,9 +65,6 @@ class autor(models.Model):
     # Relación One2many con el modelo 'libro'
     libros_publicados = fields.One2many('dcp_library.libro', 'autor_id', string="Libros publicados")
 
-    _sql_constraints = [('id_autor_unique', 'unique(id_autor)', 'El ID del autor debe ser único.')]
-
-
 
 class prestamo(models.Model):
     _name = 'dcp_library.prestamo'
@@ -80,9 +78,6 @@ class prestamo(models.Model):
     cliente_id = fields.Many2one('dcp_library.cliente', string="Cliente", required=True, ondelete="cascade")
     fecha_prestamo = fields.Date(string="Fecha de préstamo", required=True)
     fecha_devolucion = fields.Date(string="Fecha de devolución")
-
-    _sql_constraints = [('id_prestamo_unique', 'unique(id_prestamo)', 'El ID del préstamo debe ser único.')]
-
 
 
 class cliente(models.Model):
@@ -100,5 +95,3 @@ class cliente(models.Model):
     # Relación Many2many con el modelo 'libro' para gestionar los favoritos.
     # Se utiliza la tabla intermedia 'cliente_favoritos'
     favoritos = fields.Many2many('dcp_library.libro', 'cliente_favoritos', 'cliente_id', 'libro_id', string="Favoritos")
-
-    _sql_constraints = [('numero_carnet_unique', 'unique(numero_carnet_biblioteca)', 'El número de carné debe ser único.')]

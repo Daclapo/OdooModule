@@ -2,14 +2,14 @@
 {
     'name': "dcp_library",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Modulo para la gestion de prestamos de libros en bibliotecas",
 
     'description': """
-Long description of module's purpose
+Este es un módulo creado para la gestion de prestamos de libros en bibliotecas, el cual permite llevar un control de los libros prestados, los libros disponibles, los usuarios que han solicitado un libro, los usuarios que han devuelto un libro, entre otros.
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "David Clarkson Postigo",
+    'website': "https://iesclaradelrey.es/portal/index.php/es/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml

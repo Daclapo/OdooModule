@@ -22,7 +22,8 @@ Este es un módulo creado para la gestion de prestamos de libros en bibliotecas,
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/dcp_library_security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],

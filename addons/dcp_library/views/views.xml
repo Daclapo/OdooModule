@@ -5,58 +5,64 @@
         <!-- VISTAS PARA EL MODELO LIBRO -->
         <!-- ********************************* -->
 
-        <!-- Vista de lista (tree) de Libros -->
-        <record id="view_libro_tree" model="ir.ui.view">
-            <field name="name">dcp_library.libro.tree</field>
-            <field name="model">dcp_library.libro</field>
-            <field name="arch" type="xml">
-                <tree string="Libros">
+<!-- Vista de lista (tree) de Libros -->
+<record id="view_libro_tree" model="ir.ui.view">
+    <field name="name">dcp_library.libro.tree</field>
+    <field name="model">dcp_library.libro</field>
+    <field name="arch" type="xml">
+        <tree string="Libros">
+            <field name="isbn"/>
+            <field name="titulo"/>
+            <field name="editorial"/>
+            <field name="edicion"/>
+            <field name="estado"/>
+            <field name="prestamos_count" string="Préstamos"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Vista de formulario de Libros -->
+<record id="view_libro_form" model="ir.ui.view">
+    <field name="name">dcp_library.libro.form</field>
+    <field name="model">dcp_library.libro</field>
+    <field name="arch" type="xml">
+        <form string="Libro">
+            <sheet>
+                <group>
+                    <field name="portada" widget="image" class="oe_avatar"/>
+                </group>
+                <group>
                     <field name="isbn"/>
                     <field name="titulo"/>
+                    <field name="autor_id"/>
+                    <field name="fecha_publicacion"/>
+                </group>
+                <group>
                     <field name="editorial"/>
                     <field name="edicion"/>
+                </group>
+                <group>
+                    <field name="numero_categoria"/>
+                    <field name="valor"/>
+                </group>
+                <group>
+                    <field name="en_biblioteca"/>
                     <field name="estado"/>
-                </tree>
-            </field>
-        </record>
+                    <field name="prestamos_count" readonly="1"/>
+                </group>
+                <notebook>
+                    <page string="Préstamos">
+                        <field name="prestamos_ids" mode="tree,form"/>
+                    </page>
+                    <page string="Clientes Favoritos">
+                        <field name="cliente_ids" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
 
-        <!-- Vista de formulario de Libros -->
-        <record id="view_libro_form" model="ir.ui.view">
-            <field name="name">dcp_library.libro.form</field>
-            <field name="model">dcp_library.libro</field>
-            <field name="arch" type="xml">
-                <form string="Libro">
-                    <sheet>
-                        <group>
-                            <field name="isbn"/>
-                            <field name="titulo"/>
-                            <field name="autor_id"/>
-                            <field name="fecha_publicacion"/>
-                        </group>
-                        <group>
-                            <field name="editorial"/>
-                            <field name="edicion"/>
-                        </group>
-                        <group>
-                            <field name="numero_categoria"/>
-                            <field name="valor"/>
-                        </group>
-                        <group>
-                            <field name="en_biblioteca"/>
-                            <field name="estado"/>
-                        </group>
-                        <notebook>
-                            <page string="Préstamos">
-                                <field name="prestamos_ids" mode="tree,form"/>
-                            </page>
-                            <page string="Clientes Favoritos">
-                                <field name="cliente_ids" widget="many2many_tags"/>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
         <!-- ********************************* -->
         <!-- VISTAS PARA EL MODELO AUTOR -->

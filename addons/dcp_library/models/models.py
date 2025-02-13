@@ -23,10 +23,13 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class libro(models.Model):
     _name = 'dcp_library.libro'
     _description = 'Libro de la biblioteca'
+    _order = 'titulo'
+    _rec_name = 'titulo'  # He añadido esto porque me esta estaba dando errores. Representa el nombre de los registros del modelo.
 
     isbn = fields.Char(string="ISBN", required=True, help="Identificador único del libro")
     titulo = fields.Char(string="Título", required=True)
@@ -56,6 +59,8 @@ class libro(models.Model):
 class autor(models.Model):
     _name = 'dcp_library.autor'
     _description = 'Autor de libros'
+    _order = 'apellidos, nombre'
+    _rec_name = 'nombre'
 
     # Campo que se define como identificador único (en Odoo la PK es "id" pero se añade este campo para cumplir el enunciado)
     id_autor = fields.Integer(string="ID Autor", required=True, help="Identificador único del autor")
@@ -69,6 +74,7 @@ class autor(models.Model):
 class prestamo(models.Model):
     _name = 'dcp_library.prestamo'
     _description = 'Préstamo de libros'
+    _order = 'fecha_prestamo desc'
 
     # Campo identificador único del préstamo
     id_prestamo = fields.Integer(string="ID Préstamo", required=True, help="Identificador único del préstamo")
@@ -79,10 +85,18 @@ class prestamo(models.Model):
     fecha_prestamo = fields.Date(string="Fecha de préstamo", required=True)
     fecha_devolucion = fields.Date(string="Fecha de devolución")
 
+    @api.constrains('fecha_prestamo', 'fecha_devolucion')
+    def _check_fechas(self):
+        for record in self:
+            if record.fecha_devolucion and record.fecha_prestamo > record.fecha_devolucion:
+                raise ValidationError('La fecha de devolución debe ser posterior a la fecha de préstamo')
+
 
 class cliente(models.Model):
     _name = 'dcp_library.cliente'
     _description = 'Cliente de la biblioteca'
+    _order = 'fecha_registro desc'
+    _rec_name = 'nombre_completo'
 
     numero_carnet_biblioteca = fields.Char(string="Número de carné", required=True, help="Identificador único del cliente")
     nombre_completo = fields.Char(string="Nombre completo", required=True)

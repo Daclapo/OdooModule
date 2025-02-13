@@ -32,5 +32,5 @@ Este es un módulo creado para la gestion de prestamos de libros en bibliotecas,
         'demo/demo.xml',
     ],
 
-
+    'application': True,
 }

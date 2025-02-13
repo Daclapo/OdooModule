@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- AUTORES -->
+    <record id="demo_autor_1" model="dcp_library.autor">
+      <field name="id_autor">1</field>
+      <field name="apellidos">Homero</field>
+      <field name="nombre">Homero</field>
+    </record>
+
+    <record id="demo_autor_2" model="dcp_library.autor">
+      <field name="id_autor">2</field>
+      <field name="apellidos">Dostoyevsky</field>
+      <field name="nombre">Fyodor</field>
+    </record>
+
+    <record id="demo_autor_3" model="dcp_library.autor">
+      <field name="id_autor">3</field>
+      <field name="apellidos">Stegner</field>
+      <field name="nombre">Wallace</field>
+    </record>
+
+    <!-- LIBROS -->
+    <record id="demo_libro_1" model="dcp_library.libro">
+      <field name="isbn">9780000000001</field>
+      <field name="titulo">La Odisea</field>
+      <field name="autor_id" ref="demo_autor_1"/>
+      <field name="fecha_publicacion">0800-01-01</field>
+      <field name="editorial">Editorial Clásica</field>
+      <field name="edicion">Primera</field>
+      <field name="numero_categoria">800</field>
+      <field name="valor">15.99</field>
+      <field name="en_biblioteca">True</field>
+      <field name="estado">nuevo</field>
+      <!-- Se carga la imagen desde static/imagenes/theodyssey_homer.jpg -->
+      <field name="portada" type="binary" file="imagenes/theodyssey_homer.jpg"/>
+    </record>
+
+    <record id="demo_libro_2" model="dcp_library.libro">
+      <field name="isbn">9780000000002</field>
+      <field name="titulo">Los Hermanos Karamazov</field>
+      <field name="autor_id" ref="demo_autor_2"/>
+      <field name="fecha_publicacion">1880-01-01</field>
+      <field name="editorial">Editorial Rusa</field>
+      <field name="edicion">Primera</field>
+      <field name="numero_categoria">500</field>
+      <field name="valor">20.99</field>
+      <field name="en_biblioteca">True</field>
+      <field name="estado">usado</field>
+      <!-- Se carga la imagen desde static/imagenes/thebrotherskaramazov_fyodordostoyevsky.jpeg -->
+      <field name="portada" type="binary" file="imagenes/thebrotherskaramazov_fyodordostoyevsky.jpeg"/>
+    </record>
+
+    <record id="demo_libro_3" model="dcp_library.libro">
+      <field name="isbn">9780000000003</field>
+      <field name="titulo">Angel of Repose</field>
+      <field name="autor_id" ref="demo_autor_3"/>
+      <field name="fecha_publicacion">1970-01-01</field>
+      <field name="editorial">Editorial Americana</field>
+      <field name="edicion">Segunda</field>
+      <field name="numero_categoria">300</field>
+      <field name="valor">18.99</field>
+      <field name="en_biblioteca">True</field>
+      <field name="estado">nuevo</field>
+      <!-- Se carga la imagen desde static/imagenes/angleofrepose_wallacestegner.jpg -->
+      <field name="portada" type="binary" file="imagenes/angleofrepose_wallacestegner.jpg"/>
+    </record>
+
+    <!-- CLIENTES -->
+    <record id="demo_cliente_1" model="dcp_library.cliente">
+      <field name="numero_carnet_biblioteca">DC001</field>
+      <field name="nombre_completo">David Clarkson</field>
+      <field name="fecha_registro">2022-01-01</field>
+      <field name="fecha_caducacion_carnet">2027-01-01</field>
+      <!-- Se asigna "La Odisea" como favorito -->
+      <field name="favoritos" eval="[(6, 0, [ref('demo_libro_1')])]"/>
+    </record>
+
+    <record id="demo_cliente_2" model="dcp_library.cliente">
+      <field name="numero_carnet_biblioteca">RF002</field>
+      <field name="nombre_completo">Rigomino Fernandez</field>
+      <field name="fecha_registro">2022-02-01</field>
+      <field name="fecha_caducacion_carnet">2027-02-01</field>
+      <!-- Se asigna "Los Hermanos Karamazov" como favorito -->
+      <field name="favoritos" eval="[(6, 0, [ref('demo_libro_2')])]"/>
+    </record>
+
+    <record id="demo_cliente_3" model="dcp_library.cliente">
+      <field name="numero_carnet_biblioteca">FH003</field>
+      <field name="nombre_completo">Filomena Hornero</field>
+      <field name="fecha_registro">2022-03-01</field>
+      <field name="fecha_caducacion_carnet">2027-03-01</field>
+      <!-- Se asigna "Angel of Repose" como favorito -->
+      <field name="favoritos" eval="[(6, 0, [ref('demo_libro_3')])]"/>
+    </record>
+
+    <!-- PRÉSTAMOS -->
+    <record id="demo_prestamo_1" model="dcp_library.prestamo">
+      <field name="id_prestamo">1</field>
+      <field name="libro_prestado_id" ref="demo_libro_1"/>
+      <field name="cliente_id" ref="demo_cliente_1"/>
+      <field name="fecha_prestamo">2023-10-01</field>
+      <field name="fecha_devolucion">2023-10-15</field>
+    </record>
+
+    <record id="demo_prestamo_2" model="dcp_library.prestamo">
+      <field name="id_prestamo">2</field>
+      <field name="libro_prestado_id" ref="demo_libro_2"/>
+      <field name="cliente_id" ref="demo_cliente_2"/>
+      <field name="fecha_prestamo">2023-11-01</field>
+      <field name="fecha_devolucion">2023-11-15</field>
+    </record>
+
+    <record id="demo_prestamo_3" model="dcp_library.prestamo">
+      <field name="id_prestamo">3</field>
+      <field name="libro_prestado_id" ref="demo_libro_3"/>
+      <field name="cliente_id" ref="demo_cliente_3"/>
+      <field name="fecha_prestamo">2023-12-01</field>
+      <field name="fecha_devolucion">2023-12-15</field>
+    </record>
+
+  </data>
+</odoo>

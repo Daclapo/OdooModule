@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Autor: se crea un autor -->
+        <record id="demo_autor_1" model="library_prueba.autor">
+            <field name="id_autor">1</field>
+            <field name="apellidos">de Ios</field>
+            <field name="nombre">Homero</field>
+        </record>
+
+        <!-- Libro: se crea un libro relacionado con el autor anterior -->
+        <record id="demo_libro_1" model="library_prueba.libro">
+            <field name="isbn">9783161484100</field>
+            <field name="titulo">La Odisea</field>
+            <field name="autor_id" ref="demo_autor_1"/>
+            <field name="fecha_publicacion">2020-05-01</field>
+            <field name="editorial">Penguin Classics</field>
+            <field name="edicion">5</field>
+            <field name="numero_categoria">112</field>
+            <field name="valor">29.99</field>
+            <field name="en_biblioteca">True</field>
+            <field name="estado">nuevo</field>
+        </record>
+
+        <!-- Cliente: se crea un cliente que tendrá además el libro marcado como favorito (Many2many) -->
+        <record id="demo_cliente_1" model="library_prueba.cliente">
+            <field name="numero_carnet_biblioteca">C12345</field>
+            <field name="nombre_completo">María Pérez</field>
+            <field name="fecha_registro">2021-01-15</field>
+            <field name="fecha_caducacion_carnet">2026-01-15</field>
+            <!-- Se asigna el libro como favorito -->
+            <field name="favoritos" eval="[(6, 0, [ref('demo_libro_1')])]"/>
+        </record>
+
+        <!-- Préstamo: se crea un préstamo que relaciona el libro y el cliente -->
+        <record id="demo_prestamo_1" model="library_prueba.prestamo">
+            <field name="id_prestamo">1</field>
+            <field name="libro_prestado_id" ref="demo_libro_1"/>
+            <field name="cliente_id" ref="demo_cliente_1"/>
+            <field name="fecha_prestamo">2023-09-01</field>
+            <field name="fecha_devolucion">2023-09-15</field>
+        </record>
+    </data>
+</odoo>

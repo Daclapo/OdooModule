@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO LIBRO -->
+        <!-- ********************************* -->
+
+<!-- Vista de lista (tree) de Libros -->
+<record id="view_libro_tree" model="ir.ui.view">
+    <field name="name">library_prueba.libro.tree</field>
+    <field name="model">library_prueba.libro</field>
+    <field name="arch" type="xml">
+        <tree string="Libros">
+            <field name="isbn"/>
+            <field name="titulo"/>
+            <field name="editorial"/>
+            <field name="edicion"/>
+            <field name="estado"/>
+            <field name="prestamos_count" string="Préstamos"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Vista de formulario de Libros -->
+<record id="view_libro_form" model="ir.ui.view">
+    <field name="name">library_prueba.libro.form</field>
+    <field name="model">library_prueba.libro</field>
+    <field name="arch" type="xml">
+        <form string="Libro">
+            <sheet>
+                <group>
+                    <field name="portada" widget="image" class="oe_avatar"/>
+                </group>
+                <group>
+                    <field name="isbn"/>
+                    <field name="titulo"/>
+                    <field name="autor_id"/>
+                    <field name="fecha_publicacion"/>
+                </group>
+                <group>
+                    <field name="editorial"/>
+                    <field name="edicion"/>
+                </group>
+                <group>
+                    <field name="numero_categoria"/>
+                    <field name="valor"/>
+                </group>
+                <group>
+                    <field name="en_biblioteca"/>
+                    <field name="estado"/>
+                    <field name="prestamos_count" readonly="1"/>
+                </group>
+                <notebook>
+                    <page string="Préstamos">
+                        <field name="prestamos_ids" mode="tree,form"/>
+                    </page>
+                    <page string="Clientes Favoritos">
+                        <field name="cliente_ids" widget="many2many_tags"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO AUTOR -->
+        <!-- ********************************* -->
+
+        <!-- Vista de lista (tree) de Autores -->
+        <record id="view_autor_tree" model="ir.ui.view">
+            <field name="name">library_prueba.autor.tree</field>
+            <field name="model">library_prueba.autor</field>
+            <field name="arch" type="xml">
+                <tree string="Autores">
+                    <field name="id_autor"/>
+                    <field name="apellidos"/>
+                    <field name="nombre"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario de Autores -->
+        <record id="view_autor_form" model="ir.ui.view">
+            <field name="name">library_prueba.autor.form</field>
+            <field name="model">library_prueba.autor</field>
+            <field name="arch" type="xml">
+                <form string="Autor">
+                    <sheet>
+                        <group>
+                            <field name="id_autor"/>
+                            <field name="apellidos"/>
+                            <field name="nombre"/>
+                        </group>
+                        <notebook>
+                            <page string="Libros Publicados">
+                                <field name="libros_publicados" mode="tree,form"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO PRESTAMO -->
+        <!-- ********************************* -->
+
+        <!-- Vista de lista (tree) de Préstamos -->
+        <record id="view_prestamo_tree" model="ir.ui.view">
+            <field name="name">library_prueba.prestamo.tree</field>
+            <field name="model">library_prueba.prestamo</field>
+            <field name="arch" type="xml">
+                <tree string="Préstamos">
+                    <field name="id_prestamo"/>
+                    <field name="libro_prestado_id"/>
+                    <field name="cliente_id"/>
+                    <field name="fecha_prestamo"/>
+                    <field name="fecha_devolucion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario de Préstamos -->
+        <record id="view_prestamo_form" model="ir.ui.view">
+            <field name="name">library_prueba.prestamo.form</field>
+            <field name="model">library_prueba.prestamo</field>
+            <field name="arch" type="xml">
+                <form string="Préstamo">
+                    <sheet>
+                        <group>
+                            <field name="id_prestamo"/>
+                            <field name="libro_prestado_id"/>
+                            <field name="cliente_id"/>
+                        </group>
+                        <group>
+                            <field name="fecha_prestamo"/>
+                            <field name="fecha_devolucion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO CLIENTE -->
+        <!-- ********************************* -->
+
+        <!-- Vista de lista (tree) de Clientes -->
+        <record id="view_cliente_tree" model="ir.ui.view">
+            <field name="name">library_prueba.cliente.tree</field>
+            <field name="model">library_prueba.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes">
+                    <field name="numero_carnet_biblioteca"/>
+                    <field name="nombre_completo"/>
+                    <field name="fecha_registro"/>
+                    <field name="fecha_caducacion_carnet"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario de Clientes -->
+        <record id="view_cliente_form" model="ir.ui.view">
+            <field name="name">library_prueba.cliente.form</field>
+            <field name="model">library_prueba.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Cliente">
+                    <sheet>
+                        <group>
+                            <field name="numero_carnet_biblioteca"/>
+                            <field name="nombre_completo"/>
+                        </group>
+                        <group>
+                            <field name="fecha_registro"/>
+                            <field name="fecha_caducacion_carnet"/>
+                        </group>
+                        <notebook>
+                            <page string="Préstamos Activos">
+                                <field name="prestamos_activos" mode="tree,form"/>
+                            </page>
+                            <page string="Favoritos">
+                                <field name="favoritos" widget="many2many_tags"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ********************************* -->
+        <!-- ACCIONES: VENTANAS PARA ABRIR LAS VISTAS -->
+        <!-- ********************************* -->
+
+        <record id="action_libro" model="ir.actions.act_window">
+            <field name="name">Libros</field>
+            <field name="res_model">library_prueba.libro</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_autor" model="ir.actions.act_window">
+            <field name="name">Autores</field>
+            <field name="res_model">library_prueba.autor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_prestamo" model="ir.actions.act_window">
+            <field name="name">Préstamos</field>
+            <field name="res_model">library_prueba.prestamo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_cliente" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="res_model">library_prueba.cliente</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- ********************************* -->
+        <!-- MENÚS -->
+        <!-- ********************************* -->
+
+        <!-- Menú principal -->
+        <menuitem id="menu_biblioteca" name="Biblioteca" sequence="1"/>
+
+        <!-- Submenú: Catálogo (para Libros y Autores) -->
+        <menuitem id="menu_catalogo" name="Catálogo" parent="menu_biblioteca" sequence="1"/>
+
+        <!-- Submenú: Operaciones (para Clientes y Préstamos) -->
+        <menuitem id="menu_operaciones" name="Operaciones" parent="menu_biblioteca" sequence="2"/>
+
+        <!-- Ítems de menú para cada acción -->
+        <menuitem id="menu_libros" name="Libros" parent="menu_catalogo" action="action_libro" sequence="1"/>
+        <menuitem id="menu_autores" name="Autores" parent="menu_catalogo" action="action_autor" sequence="2"/>
+
+        <menuitem id="menu_clientes" name="Clientes" parent="menu_operaciones" action="action_cliente" sequence="1"/>
+        <menuitem id="menu_prestamos" name="Préstamos" parent="menu_operaciones" action="action_prestamo" sequence="2"/>
+
+    </data>
+</odoo>

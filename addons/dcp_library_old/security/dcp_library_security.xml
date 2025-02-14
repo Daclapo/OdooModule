@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Crear una categoría para agrupar los grupos de la aplicación -->
+    <record id="dcp_library_module_category" model="ir.module.category">
+        <field name="name">Biblioteca</field>
+        <field name="description">Categoría para el módulo Biblioteca (dcp_library)</field>
+    </record>
+
+    <!-- Grupo con permisos completos (Gestores) -->
+    <record id="group_dcp_library_full" model="res.groups">
+        <field name="name">Gestores Biblioteca</field>
+        <field name="category_id" ref="dcp_library_module_category"/>
+        <!-- Se asigna al usuario administrador (admin@odoo.com) para garantizar su acceso -->
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <!-- Grupo con permisos restringidos -->
+    <record id="group_dcp_library_restricted" model="res.groups">
+        <field name="name">Usuarios Restringidos Biblioteca</field>
+        <field name="category_id" ref="dcp_library_module_category"/>
+    </record>
+</odoo>

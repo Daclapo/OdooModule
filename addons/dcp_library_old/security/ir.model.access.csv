@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dcp_library_libro_full,dcp_library.libro.full,model_dcp_library_libro,group_dcp_library_full,1,1,1,1
+access_dcp_library_autor_full,dcp_library.autor.full,model_dcp_library_autor,group_dcp_library_full,1,1,1,1
+access_dcp_library_prestamo_full,dcp_library.prestamo.full,model_dcp_library_prestamo,group_dcp_library_full,1,1,1,1
+access_dcp_library_cliente_full,dcp_library.cliente.full,model_dcp_library_cliente,group_dcp_library_full,1,1,1,1
+
+access_dcp_library_libro_restricted,dcp_library.libro.restricted,model_dcp_library_libro,group_dcp_library_restricted,1,0,0,0
+access_dcp_library_autor_restricted,dcp_library.autor.restricted,model_dcp_library_autor,group_dcp_library_restricted,1,0,0,0
+access_dcp_library_prestamo_restricted,dcp_library.prestamo.restricted,model_dcp_library_prestamo,group_dcp_library_restricted,1,0,0,0
+access_dcp_library_cliente_restricted,dcp_library.cliente.restricted,model_dcp_library_cliente,group_dcp_library_restricted,1,0,0,0

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO LIBRO -->
+        <!-- ********************************* -->
 
 <!-- Vista de lista (tree) de Libros -->
 <record id="view_libro_tree" model="ir.ui.view">
@@ -62,7 +64,9 @@
 </record>
 
 
-
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO AUTOR -->
+        <!-- ********************************* -->
 
         <!-- Vista de lista (tree) de Autores -->
         <record id="view_autor_tree" model="ir.ui.view">
@@ -99,7 +103,9 @@
             </field>
         </record>
 
-
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO PRESTAMO -->
+        <!-- ********************************* -->
 
         <!-- Vista de lista (tree) de Préstamos -->
         <record id="view_prestamo_tree" model="ir.ui.view">
@@ -137,6 +143,9 @@
             </field>
         </record>
 
+        <!-- ********************************* -->
+        <!-- VISTAS PARA EL MODELO CLIENTE -->
+        <!-- ********************************* -->
 
         <!-- Vista de lista (tree) de Clientes -->
         <record id="view_cliente_tree" model="ir.ui.view">
@@ -180,8 +189,9 @@
             </field>
         </record>
 
-
-
+        <!-- ********************************* -->
+        <!-- ACCIONES: VENTANAS PARA ABRIR LAS VISTAS -->
+        <!-- ********************************* -->
 
         <record id="action_libro" model="ir.actions.act_window">
             <field name="name">Libros</field>
@@ -207,8 +217,9 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-
-
+        <!-- ********************************* -->
+        <!-- MENÚS -->
+        <!-- ********************************* -->
 
         <!-- Menú principal -->
         <menuitem id="menu_biblioteca" name="Biblioteca" sequence="1"/>

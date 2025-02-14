@@ -1,5 +1,27 @@
 # -*- coding: utf-8 -*-
 
+# from odoo import models, fields, api
+
+
+# class dcp_library(models.Model):
+#     _name = 'dcp_library.dcp_library'
+#     _description = 'dcp_library.dcp_library'
+
+#     name = fields.Char()
+#     value = fields.Integer()
+#     value2 = fields.Float(compute="_value_pc", store=True)
+#     description = fields.Text()
+#
+#     @api.depends('value')h
+#     def _value_pc(self):
+#         for record in self:
+#             record.value2 = float(record.value) / 100
+
+
+
+
+# -*- coding: utf-8 -*-
+
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
@@ -23,8 +45,8 @@ class libro(models.Model):
     prestamos_ids = fields.One2many('dcp_library.prestamo', 'libro_prestado_id', string="Préstamos")
     # Relación Many2many con clientes (favoritos)
     cliente_ids = fields.Many2many('dcp_library.cliente', 'cliente_favoritos', 'libro_id', 'cliente_id', string="Clientes que marcaron este libro como favorito")
-    # Campo de imagen de la portada (tipo Imagen)
-    portada = fields.Image(string="Portada", max_width=100, max_height=150, help="Imagen de la portada del libro")
+    # Campo de imagen de la portada (tipo Binary)
+    portada = fields.Binary(string="Portada", attachment=True, help="Imagen de la portada del libro")
     # Campo calculado que cuenta el número de préstamos
     prestamos_count = fields.Integer(string="Número de Préstamos", compute="_compute_prestamos_count", store=True, help="Número de veces que este libro ha sido prestado")
 
@@ -40,6 +62,7 @@ class autor(models.Model):
     _order = 'apellidos, nombre'
     _rec_name = 'nombre'
 
+    # Campo que se define como identificador único (en Odoo la PK es "id" pero se añade este campo para cumplir el enunciado)
     id_autor = fields.Integer(string="ID Autor", required=True, help="Identificador único del autor")
     apellidos = fields.Char(string="Apellidos", required=True)
     nombre = fields.Char(string="Nombre", required=True)
@@ -53,6 +76,7 @@ class prestamo(models.Model):
     _description = 'Préstamo de libros'
     _order = 'fecha_prestamo desc'
 
+    # Campo identificador único del préstamo
     id_prestamo = fields.Integer(string="ID Préstamo", required=True, help="Identificador único del préstamo")
     # Relación Many2one con el libro que se presta
     libro_prestado_id = fields.Many2one('dcp_library.libro', string="Libro prestado", required=True, ondelete="cascade")

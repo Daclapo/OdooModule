@@ -1,44 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-        <!-- Autor: se crea un autor -->
-        <record id="demo_autor_1" model="dcp_library.autor">
-            <field name="id_autor">1</field>
-            <field name="apellidos">López</field>
-            <field name="nombre">Juan</field>
-        </record>
+    <data>
+<!--
+          <record id="object0" model="dcp_library.dcp_library">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+          </record>
 
-        <!-- Libro: se crea un libro relacionado con el autor anterior -->
-        <record id="demo_libro_1" model="dcp_library.libro">
-            <field name="isbn">9783161484100</field>
-            <field name="titulo">El Gran Libro</field>
-            <field name="autor_id" ref="demo_autor_1"/>
-            <field name="fecha_publicacion">2020-05-01</field>
-            <field name="editorial">Editorial Ejemplo</field>
-            <field name="edicion">Primera</field>
-            <field name="numero_categoria">100</field>
-            <field name="valor">29.99</field>
-            <field name="en_biblioteca">True</field>
-            <field name="estado">nuevo</field>
-        </record>
+          <record id="object1" model="dcp_library.dcp_library">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+          </record>
 
-        <!-- Cliente: se crea un cliente que tendrá además el libro marcado como favorito (Many2many) -->
-        <record id="demo_cliente_1" model="dcp_library.cliente">
-            <field name="numero_carnet_biblioteca">C12345</field>
-            <field name="nombre_completo">María Pérez</field>
-            <field name="fecha_registro">2021-01-15</field>
-            <field name="fecha_caducacion_carnet">2026-01-15</field>
-            <!-- Se asigna el libro como favorito -->
-            <field name="favoritos" eval="[(6, 0, [ref('demo_libro_1')])]"/>
-        </record>
+          <record id="object2" model="dcp_library.dcp_library">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+          </record>
 
-        <!-- Préstamo: se crea un préstamo que relaciona el libro y el cliente -->
-        <record id="demo_prestamo_1" model="dcp_library.prestamo">
-            <field name="id_prestamo">1</field>
-            <field name="libro_prestado_id" ref="demo_libro_1"/>
-            <field name="cliente_id" ref="demo_cliente_1"/>
-            <field name="fecha_prestamo">2023-09-01</field>
-            <field name="fecha_devolucion">2023-09-15</field>
-        </record>
+          <record id="object3" model="dcp_library.dcp_library">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+          </record>
+
+          <record id="object4" model="dcp_library.dcp_library">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+          </record>
+-->
     </data>
 </odoo>

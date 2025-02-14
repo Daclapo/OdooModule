@@ -20,12 +20,12 @@ Este es un módulo creado para la gestion de prestamos de libros en bibliotecas,
     # any module necessary for this one to work correctly
     'depends': ['base'],
 
+    # always loaded
     'data': [
         'security/dcp_library_security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'data/data.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
